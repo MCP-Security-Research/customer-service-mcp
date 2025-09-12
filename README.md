@@ -14,9 +14,8 @@ The MCP server exposes tools/resources such as:
 
 This makes it easy for a customer service AI assistant (running inside MCP) to interact with customers through messaging systems, fetch relevant data, and handle requests.
 
+simulate a json database of customer profiles and tickets.
+
 ## Development Tools
 
-- python
-- uv
 - mcp
-- kubernetes cluster

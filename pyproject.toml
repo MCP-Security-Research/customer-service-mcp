@@ -1,0 +1,7 @@
+[project]
+name = "customer-service-mcp"
+version = "0.1.0"
+description = "The Customer Service MCP Server simulates a bank’s customer support automation system."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []
