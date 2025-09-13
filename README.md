@@ -18,4 +18,19 @@ simulate a json database of customer profiles and tickets.
 
 ## Development Tools
 
-- mcp
+```json
+example: claude_desktop_config.json
+{
+  "mcpServers": {
+    "customer-service-mcp": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "/Users/aidandyga/Downloads/SeniorThesis/customer-service-mcp",
+        "run",
+        "main.py"
+      ]
+    }
+  }
+}
+```

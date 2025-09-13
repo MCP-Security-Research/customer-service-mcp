@@ -36,3 +36,7 @@ def greet_user(name: str, style: str = "friendly") -> str:
     }
 
     return f"{styles.get(style, styles['friendly'])} for someone named {name}."
+
+if __name__ == "__main__":
+    # Initialize and run the server
+    mcp.run(transport='stdio')
