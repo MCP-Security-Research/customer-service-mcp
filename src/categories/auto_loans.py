@@ -1,6 +1,6 @@
 """Provides answers to common auto loan questions."""
 
-def get_auto_loan_application_status():
+def auto_loan_application_status():
 	"""Returns information on how to find auto loan application status."""
 	return (
 		"You can check your auto loan application status by logging into your online banking account, "
@@ -8,7 +8,7 @@ def get_auto_loan_application_status():
 		"contact our customer service at 1-800-000-0000."
 	)
 
-def schedule_auto_loan_payment():
+def auto_loan_schedule_payment():
 	"""Returns instructions on how to schedule auto loan payments."""
 	return (
 		"To schedule a payment for your auto loan, log in to your online or mobile banking, go to the 'Payments' section, "

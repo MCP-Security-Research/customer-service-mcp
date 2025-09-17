@@ -58,7 +58,7 @@ example: claude_desktop_config.json
         "--directory",
         "/Users/aidandyga/Downloads/SeniorThesis/customer-service-mcp/src",
         "run",
-        "main.py"
+        "server.py"
       ]
     }
   }
