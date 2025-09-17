@@ -6,7 +6,61 @@
         "--directory",
         "/Users/aidandyga/Downloads/SeniorThesis/customer-service-mcp/src/categories",
         "run",
-        "auto_loans.py"
+        "auto_loan.py"
+      ]
+    },
+    "credit-card-customer-support-agent": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "/Users/aidandyga/Downloads/SeniorThesis/customer-service-mcp/src/categories",
+        "run",
+        "credit_card.py"
+      ]
+    },
+    "home-equity-customer-support-agent": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "/Users/aidandyga/Downloads/SeniorThesis/customer-service-mcp/src/categories",
+        "run",
+        "home_equity_loan.py"
+      ]
+    },
+    "mortgage-customer-support-agent": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "/Users/aidandyga/Downloads/SeniorThesis/customer-service-mcp/src/categories",
+        "run",
+        "mortgage.py"
+      ]
+    },
+    "online-mobile-banking-customer-support-agent": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "/Users/aidandyga/Downloads/SeniorThesis/customer-service-mcp/src/categories",
+        "run",
+        "online_mobile_banking.py"
+      ]
+    },
+    "personal-loan-customer-support-agent": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "/Users/aidandyga/Downloads/SeniorThesis/customer-service-mcp/src/categories",
+        "run",
+        "personal_loan.py"
+      ]
+    },
+    "student-loan-customer-support-agent": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "/Users/aidandyga/Downloads/SeniorThesis/customer-service-mcp/src/categories",
+        "run",
+        "student_loan.py"
       ]
     }
   }
