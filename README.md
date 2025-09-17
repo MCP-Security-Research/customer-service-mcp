@@ -69,3 +69,22 @@ example: claude_desktop_config.json
 
 have multiple files. import the functions into a main server file. look into how these are built???
 build it basically. then draw a diagram of how it works.
+
+have multiple mcp servers. they all use some of the same functions in backedend and messaging.
+
+```json
+example: claude_desktop_config.json
+{
+  "mcpServers": {
+    "customer-service-mcp": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "/Users/aidandyga/Downloads/SeniorThesis/customer-service-mcp/src/categories",
+        "run",
+        "auto_loans.py"
+      ]
+    }
+  }
+}
+```

@@ -14,7 +14,8 @@ from mcp.server.fastmcp import FastMCP
 # Create an MCP server
 mcp = FastMCP("Bank Customer Support Agent")
 
-# code here 
+# import the categories
+# determine the intent of the users customer service request and route to the appropriate function
 
 if __name__ == "__main__":
     # Initialize and run the server

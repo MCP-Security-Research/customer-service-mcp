@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "auto-loan-customer-support-agent": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "/Users/aidandyga/Downloads/SeniorThesis/customer-service-mcp/src/categories",
+        "run",
+        "auto_loans.py"
+      ]
+    }
+  }
+}
