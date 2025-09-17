@@ -56,7 +56,7 @@ example: claude_desktop_config.json
       "command": "uv",
       "args": [
         "--directory",
-        "/Users/aidandyga/Downloads/SeniorThesis/customer-service-mcp",
+        "/Users/aidandyga/Downloads/SeniorThesis/customer-service-mcp/src",
         "run",
         "main.py"
       ]
@@ -67,15 +67,5 @@ example: claude_desktop_config.json
 
 ## xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
-have multiple files.  import the functions into a main server file.
-
-look through free github dev pack stuff
-
-'''
-common questions:
-
-where can i find info regarding my loan status
-how can i schedule payments
-different between automated and recurring payment
-my automated payment will draw from my account but i dont have funds, how can i stop it
-'''
+have multiple files. import the functions into a main server file. look into how these are built???
+build it basically. then draw a diagram of how it works.
