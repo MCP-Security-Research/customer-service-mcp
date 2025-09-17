@@ -1,5 +1,11 @@
 """Provides answers to common credit card questions."""
 
+from mcp.server.fastmcp import FastMCP
+
+# Create an MCP server
+mcp = FastMCP("Credit Card Customer Support Agent")
+
+@mcp.tool()
 def credit_card_lost_or_stolen() -> str:
     """Explains what to do if a credit card is lost or stolen.
 
@@ -10,6 +16,7 @@ def credit_card_lost_or_stolen() -> str:
         "If your credit card is lost or stolen, immediately report it by logging into your online banking account or calling customer service at 1-800-000-0000. Your card will be deactivated and a replacement will be issued. Monitor your account for unauthorized transactions."
     )
 
+@mcp.tool()
 def credit_card_request_replacement() -> str:
     """Provides instructions on requesting a replacement card if it is not working.
 
@@ -20,6 +27,7 @@ def credit_card_request_replacement() -> str:
         "To request a replacement card, log in to your online banking account, go to the 'Cards' section, and select 'Request Replacement.' You can also call customer service to request a new card if your current one is damaged or not working."
     )
 
+@mcp.tool()
 def credit_card_make_payment() -> str:
     """Provides instructions on how to make a payment on a credit card.
 
@@ -30,6 +38,7 @@ def credit_card_make_payment() -> str:
         "To make a payment on your credit card, log in to your online or mobile banking, go to the 'Payments' section, select your credit card account, and choose 'Make Payment.' You can set up one-time or recurring payments from your bank account."
     )
 
+@mcp.tool()
 def credit_card_dispute_charge() -> str:
     """Explains how to dispute a charge on a credit card.
 
@@ -40,6 +49,7 @@ def credit_card_dispute_charge() -> str:
         "To dispute a charge, log in to your online banking account, find the transaction in your credit card activity, and select 'Dispute Transaction.' Follow the prompts to provide details. You can also contact customer service for assistance."
     )
 
+@mcp.tool()
 def credit_card_activate_new() -> str:
     """Provides instructions on how to activate a new credit card.
 
@@ -50,6 +60,7 @@ def credit_card_activate_new() -> str:
         "To activate your new credit card, log in to your online banking account or call the activation number provided with your card. Follow the instructions to complete activation."
     )
 
+@mcp.tool()
 def credit_card_about_to_expire() -> str:
     """Explains what to do if a credit card is about to expire.
 
@@ -60,6 +71,7 @@ def credit_card_about_to_expire() -> str:
         "If your credit card is about to expire, a replacement card will typically be mailed to you before the expiration date. If you do not receive a new card, contact customer service to request one."
     )
 
+@mcp.tool()
 def credit_card_request_limit_increase() -> str:
     """Provides instructions on how to request a credit limit increase.
 
@@ -69,3 +81,7 @@ def credit_card_request_limit_increase() -> str:
     return (
         "To request a credit limit increase, log in to your online banking account, go to the 'Cards' section, and select 'Request Credit Limit Increase.' You may need to provide updated income or employment information. You can also call customer service to make this request."
     )
+
+if __name__ == "__main__":
+    # Initialize and run the server
+    mcp.run(transport='stdio')

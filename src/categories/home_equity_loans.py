@@ -1,5 +1,11 @@
 """Provides answers to common home equity loan questions."""
 
+from mcp.server.fastmcp import FastMCP
+
+# Create an MCP server
+mcp = FastMCP("Home Equity Loan Customer Support Agent")
+
+@mcp.tool()
 def home_equity_loan_fees() -> str:
     """Provides information about fees associated with home equity loans.
 
@@ -10,6 +16,7 @@ def home_equity_loan_fees() -> str:
         "There may be fees associated with home equity loans, such as application fees, appraisal fees, and closing costs. For a detailed breakdown of fees, please review your loan documents or contact our customer service at 1-800-000-0000."
     )
 
+@mcp.tool()
 def home_equity_loan_application() -> str:
     """Provides instructions on how to apply for a home equity loan.
 
@@ -20,6 +27,7 @@ def home_equity_loan_application() -> str:
         "To apply for a home equity loan, log in to your online banking account and navigate to the 'Loans' section. Select 'Apply for Home Equity Loan' and follow the on-screen instructions. You can also apply by visiting a branch or calling customer service."
     )
 
+@mcp.tool()
 def home_equity_loan_usage() -> str:
     """Explains what a home equity loan can be used for.
 
@@ -30,6 +38,7 @@ def home_equity_loan_usage() -> str:
         "A home equity loan can be used for a variety of purposes, including home improvements, debt consolidation, education expenses, or major purchases. Please consult with a financial advisor to determine if a home equity loan is right for your needs."
     )
 
+@mcp.tool()
 def home_equity_loan_interest_rate() -> str:
     """Provides information on where to find the interest rate for a home equity loan.
 
@@ -40,6 +49,7 @@ def home_equity_loan_interest_rate() -> str:
         "You can find your home equity loan interest rate by logging into your online banking account and viewing your loan details. The interest rate is also listed on your loan agreement documents. For further assistance, contact customer service."
     )
 
+@mcp.tool()
 def home_equity_loan_make_payment() -> str:
     """Provides instructions on how to make a payment on a home equity loan.
 
@@ -50,6 +60,7 @@ def home_equity_loan_make_payment() -> str:
         "To make a payment on your home equity loan, log in to your online or mobile banking, go to the 'Payments' section, select your home equity loan account, and choose 'Make Payment.' You can set up one-time or recurring payments."
     )
 
+@mcp.tool()
 def home_equity_loan_payment_history() -> str:
     """Explains how to view payment history for a home equity loan.
 
@@ -59,3 +70,7 @@ def home_equity_loan_payment_history() -> str:
     return (
         "To view your payment history for your home equity loan, log in to your online banking account, select your home equity loan account, and navigate to the 'Payment History' section. You can also request a statement from customer service."
     )
+
+if __name__ == "__main__":
+    # Initialize and run the server
+    mcp.run(transport='stdio')
