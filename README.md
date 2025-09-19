@@ -72,19 +72,30 @@ build it basically. then draw a diagram of how it works.
 
 have multiple mcp servers. they all use some of the same functions in backedend and messaging.
 
-```json
-example: claude_desktop_config.json
-{
-  "mcpServers": {
-    "customer-service-mcp": {
-      "command": "uv",
-      "args": [
-        "--directory",
-        "/Users/aidandyga/Downloads/SeniorThesis/customer-service-mcp/src/categories",
-        "run",
-        "auto_loans.py"
-      ]
-    }
-  }
-}
-```
+sql lite and claude desktop for now. could transition to real application
+
+requirements to run the server:
+
+claude desktop
+
+python x
+
+uv x
+
+and also do a setup guide
+
+'''
+overall description of how it will work here:
+
+whenever a customer service request is made, the mcp will determine the intent of the request and route it to the appropriate file/function.
+
+if the model cannot determine or needs more info, it will submit a ticket for a human to review.
+
+assume that the user is already logged in to their account. but if you really wanted to you could 2fa before request is sent
+'''
+
+----
+
+mcp client --> can ask users for info, should i do this as well? maybe later on
+
+x

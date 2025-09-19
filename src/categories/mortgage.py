@@ -6,6 +6,17 @@ from mcp.server.fastmcp import FastMCP
 mcp = FastMCP("Mortgage Customer Support Agent")
 
 @mcp.tool()
+def mortgage_application_status() -> str:
+	"""Provides information on how to find the status of your mortgage application.
+
+	Returns:
+		str: Instructions for checking your mortgage application status, including online steps and customer service contact.
+	"""
+	return (
+		"You can check your mortgage application status by logging into your online banking account, navigating to the 'Loans' section, and selecting 'Application Status.' If you need further assistance, contact our customer service at 1-800-000-0000."
+	)
+
+@mcp.tool()
 def mortgage_what_is_escrow() -> str:
     """Explains what escrow is in the context of a mortgage.
 

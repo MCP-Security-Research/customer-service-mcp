@@ -6,6 +6,17 @@ from mcp.server.fastmcp import FastMCP
 mcp = FastMCP("Student Loan Customer Support Agent")
 
 @mcp.tool()
+def student_loan_application_status() -> str:
+	"""Provides information on how to find the status of a student loan application.
+
+	Returns:
+		str: Instructions for checking your student loan application status, including online steps and customer service contact.
+	"""
+	return (
+		"You can check your student loan application status by logging into your online banking account, navigating to the 'Loans' section, and selecting 'Application Status.' If you need further assistance, contact our customer service at 1-800-000-0000."
+	)
+
+@mcp.tool()
 def student_loan_eligibility_requirements() -> str:
     """Provides information about eligibility requirements for student loans.
 
