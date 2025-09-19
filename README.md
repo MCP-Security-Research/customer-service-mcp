@@ -98,4 +98,4 @@ assume that the user is already logged in to their account. but if you really wa
 
 mcp client --> can ask users for info, should i do this as well? maybe later on
 
-x
+uv run src/database.py
