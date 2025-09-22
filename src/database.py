@@ -5,7 +5,16 @@ import sqlite3
 
 DB_NAME = 'customer_info.db'
 
-def init_db():
+def init_db() -> None:
+	"""
+	Initializes the SQLite database and creates tables for customers, accounts, loans, and credit cards.
+
+	This function creates the database schema if it does not already exist. It enables foreign key support and
+	sets up the required tables for the bank's customer service platform.
+
+	Returns:
+		None
+	"""
 	conn = sqlite3.connect(DB_NAME)
 	c = conn.cursor()
 
@@ -50,6 +59,7 @@ def init_db():
 			term_length INTEGER,
 			start_date TEXT,
 			end_date TEXT,
+			is_active INTEGER NOT NULL DEFAULT 1, -- 1 for active, 0 for pending
 			FOREIGN KEY (customer_id) REFERENCES customers(id) ON DELETE CASCADE
 		);
 	''')
@@ -73,7 +83,15 @@ def init_db():
 	conn.close()
 
 
-def insert_example_data():
+def insert_example_data() -> None:
+	"""
+	Inserts example data into the database for demonstration purposes.
+
+	This function adds a sample customer, account, loan, and credit card to the database if they do not already exist.
+
+	Returns:
+		None
+	"""
 	conn = sqlite3.connect(DB_NAME)
 	c = conn.cursor()
 
@@ -106,10 +124,10 @@ def insert_example_data():
 		'2020-05-01'
 	))
 
-	# Insert a loan for the customer
+	# Insert a loan for the customer (pending state)
 	c.execute("""
-		INSERT OR IGNORE INTO loans (customer_id, loan_number, loan_type, principal_amount, interest_rate, term_length, start_date, end_date)
-		VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+		INSERT OR IGNORE INTO loans (customer_id, loan_number, loan_type, principal_amount, interest_rate, term_length, start_date, end_date, is_active)
+		VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
 	""", (
 		customer_id,
 		'LN2001',
@@ -118,7 +136,8 @@ def insert_example_data():
 		4.5,
 		36,
 		'2022-01-01',
-		'2025-01-01'
+		'2025-01-01',
+		0  # 0 = pending
 	))
 
 	# Insert a credit card for the customer

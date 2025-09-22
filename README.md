@@ -99,3 +99,14 @@ assume that the user is already logged in to their account. but if you really wa
 mcp client --> can ask users for info, should i do this as well? maybe later on
 
 uv run src/database.py
+
+is there a reliable way to store - pass around variables between functions in mcp?
+
+how can we prevent the llm from learning on data that i pass to it?? ex. what if i want to pass a customer info to it so that i can retrieve their account info, or loan info
+
+are there llms that dont keep learning from context. like what about an llm that loses context
+context is very important for this use case
+
+mcp resource ideas, how can i encorporate mcp resource calls here
+
+uv run -m src.categories.auto_loan

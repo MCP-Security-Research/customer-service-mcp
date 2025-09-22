@@ -4,9 +4,10 @@
       "command": "uv",
       "args": [
         "--directory",
-        "/Users/aidandyga/Downloads/SeniorThesis/customer-service-mcp/src/categories",
+        "/Users/aidandyga/Downloads/SeniorThesis/customer-service-mcp",
         "run",
-        "auto_loan.py"
+        "-m",
+        "src.categories.auto_loan"
       ]
     },
     "credit-card-customer-support-agent": {

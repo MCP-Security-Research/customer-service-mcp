@@ -1,20 +1,60 @@
 """Provides answers to common auto loan questions."""
 
 from mcp.server.fastmcp import FastMCP
+from src.backend import get_application_status_by_number
 
 # Create an MCP server
 mcp = FastMCP("Auto Loan Customer Support Agent")
 
 @mcp.tool()
-def auto_loan_application_status() -> str:
-	"""Provides information on how to find the status of an auto loan application.
+def auto_loan_application_status(session=None) -> str:
+    """Checks the status of an auto loan application by prompting for the loan number if not provided.
+
+    Args:
+        session (dict, optional): MCP session/context for storing user state.
+
+    Returns:
+        str: Status of the auto loan application, or a prompt for the loan number.
+    """
+    # Ensure session is a dict
+    if not isinstance(session, dict):
+        session = {}
+
+    # Check if loan_number is already in session/context
+    loan_number = session.get('loan_number')
+    if not loan_number:
+        # Prompt user for loan number and store in session/context
+        session['awaiting_loan_number'] = True
+        return "Please provide your auto loan number to check the application status."
+
+    # If loan_number is provided, call the DB function
+    result = get_application_status_by_number(loan_number)
+    if result is None:
+        return f"No application found for loan number {loan_number}. Please check the number and try again."
+    status = result['status']
+    loan_type = result['loan_type']
+    return f"Your {loan_type} loan application (Loan Number: {loan_number}) is currently in '{status}' status."
+
+@mcp.prompt()
+def handle_loan_number_input(user_input, session=None):
+	"""
+	Handle user input for loan number, store it in session/context, and return the application status.
+
+	Args:
+		user_input (str): The loan number provided by the user.
+		session (dict, optional): MCP session/context for storing user state.
 
 	Returns:
-		str: Instructions for checking auto loan application status, including online steps and customer service contact.
+		str: The status of the auto loan application or a prompt for the loan number.
 	"""
-	return (
-		"You can check your auto loan application status by logging into your online banking account, navigating to the 'Loans' section, and selecting 'Application Status.' If you need further assistance, contact our customer service at 1-800-000-0000."
-	)
+	if session is None:
+		session = {}
+	if session.get('awaiting_loan_number'):
+		session['loan_number'] = user_input
+		session.pop('awaiting_loan_number', None)
+		return auto_loan_application_status(session)
+	# If not awaiting loan number, just return the status tool (fallback)
+	return auto_loan_application_status(session)
 
 @mcp.tool()
 def auto_loan_schedule_payment() -> str:
