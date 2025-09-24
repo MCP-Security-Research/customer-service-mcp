@@ -1,6 +1,8 @@
 """Provides answers to common credit card questions."""
 
 from mcp.server.fastmcp import FastMCP
+from src.backend import get_credit_card_expiration_date_by_number
+import json
 
 # Create an MCP server
 mcp = FastMCP("Credit Card Customer Support Agent")
@@ -61,15 +63,50 @@ def credit_card_activate_new() -> str:
     )
 
 @mcp.tool()
-def credit_card_about_to_expire() -> str:
-    """Explains what to do if a credit card is about to expire.
+def credit_card_expiration_date(session: dict | str | None = None) -> str:
+    """
+    Checks the expiration date of a credit card by prompting for the card number if not provided.
+
+    Args:
+        session (dict | str | None): MCP session/context for storing user state. Can be a dict, str (JSON), or None.
 
     Returns:
-        str: Information on receiving a replacement card before expiration and what to do if not received.
+        str: JSON string containing the expiration date, or a prompt for the card number.
     """
-    return (
-        "If your credit card is about to expire, a replacement card will typically be mailed to you before the expiration date. If you do not receive a new card, contact customer service to request one."
-    )
+    if session is None:
+        session = {}
+    if isinstance(session, str):
+        session = json.loads(session)
+    card_number = session.get('card_number')
+    if not card_number:
+        session['awaiting_card_number'] = True
+        return json.dumps({"request": "Please provide your credit card number to check the expiration date.", "session": session})
+    expiration = get_credit_card_expiration_date_by_number(card_number)
+    if expiration is None:
+        return json.dumps({"error": f"No credit card found for number {card_number}. Please check the number and try again.", "session": session})
+    return json.dumps({"response": f"Your credit card (Number: {card_number}) expires on {expiration}.", "session": session})
+
+@mcp.prompt()
+def handle_credit_card_number_input(user_input: str, session: dict | str | None = None) -> str:
+    """
+    Handle user input for credit card number, store it in session/context, and return the expiration date.
+
+    Args:
+        user_input (str): The credit card number provided by the user.
+        session (dict | str | None): MCP session/context for storing user state. Can be a dict, str (JSON), or None.
+
+    Returns:
+        str: JSON string containing the expiration date or a prompt for the card number.
+    """
+    if session is None:
+        session = {}
+    if isinstance(session, str):
+        session = json.loads(session)
+    if session.get('awaiting_card_number'):
+        session['card_number'] = user_input
+        session.pop('awaiting_card_number', None)
+        return credit_card_expiration_date(session)
+    return credit_card_expiration_date(session)
 
 @mcp.tool()
 def credit_card_request_limit_increase() -> str:

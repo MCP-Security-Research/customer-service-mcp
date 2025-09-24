@@ -1,10 +1,7 @@
 """Backend functions for gathering customer information for customer support purposes."""
 
 '''
-the table is named customer_info.db and is located in the base directory of the project.
 functions i need:
-
-all application status --> prompt back for loan type and number, then check if the loan is in the pending state, or active state --> db
 x
 disput charge on credit card --> mail
 request replacement credit card --> mail
@@ -43,5 +40,29 @@ def get_application_status_by_type_and_number(loan_type: str, loan_number: str) 
             'status': status_map.get(row[1], 'unknown'),
             'loan_number': row[2]
         }
+    else:
+        return None
+
+def get_credit_card_expiration_date_by_number(card_number: str) -> str | None:
+    """
+    Retrieve the expiration date of a credit card by card number.
+
+    Args:
+        card_number (str): The credit card number to look up.
+
+    Returns:
+        str or None: The expiration date as a string (e.g., '2027-12-31') if found, otherwise None.
+    """
+    db_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'customer_info.db')
+    conn = sqlite3.connect(db_path)
+    cursor = conn.cursor()
+    cursor.execute("""
+        SELECT expiration_date FROM credit_cards
+        WHERE card_number = ?
+    """, (card_number,))
+    row = cursor.fetchone()
+    conn.close()
+    if row:
+        return row[0]
     else:
         return None
