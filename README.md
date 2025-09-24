@@ -35,7 +35,31 @@ uv run src/database.py
 ```text
 - Open Claude Desktop.
 - Go to `Settings` > `Developer` > `Edit Config`.
-- Update the configuration as needed for your environment.
+- Update the configuration to run from the absolute path to this repository.
+```
+
+```json
+{
+  "mcpServers": {
+    "auto-loan-customer-support-agent": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "/absolute/path/to/customer-service-mcp",
+        "run",
+        "-m",
+        "src.categories.auto_loan"
+      ]
+    },
+    // Add additional MCP servers to this config to access them in Claude Desktop:
+    // "credit-card-customer-support-agent": { ... },
+    // "home-equity-customer-support-agent": { ... },
+    // "mortgage-customer-support-agent": { ... },
+    // "online-mobile-banking-customer-support-agent": { ... },
+    // "personal-loan-customer-support-agent": { ... },
+    // "student-loan-customer-support-agent": { ...
+  }
+}
 ```
 
 ---
@@ -48,3 +72,5 @@ TODO List:
 - also need something for submitting tickets (if the model cannot determine or needs more info, it will submit a ticket for a human to review.)!!!
 - sql lite and claude desktop for now. could transition to real application
 - mcp client --> can ask users for info, should i do this as well? maybe later on
+- delete the claude desktop config
+- add python linting like ruff
