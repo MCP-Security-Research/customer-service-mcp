@@ -7,6 +7,28 @@ import json
 # Create an MCP server
 mcp = FastMCP("Personal Loan Customer Support Agent")
 
+# Centralized MCP resource for personal loan FAQs/guides
+PERSONAL_LOAN_RESOURCE = {
+	"schedule_payment": "To schedule a payment for your personal loan, log in to your online or mobile banking, go to the 'Payments' section, select your personal loan account, and choose 'Schedule Payment.' You can set up payments from your account or link an external bank account.",
+	"automated_vs_recurring": "An automated payment is a payment that is automatically withdrawn from your account on a set date, often set up through your lender. A recurring payment is a payment you schedule to repeat at regular intervals, which you can manage or cancel through your online banking.",
+	"stop_automated_payment": "If you will not have enough funds for an upcoming automated payment, log in to your online banking and cancel or pause the payment, or contact customer service as soon as possible to avoid fees. You may also transfer funds into your account before the payment date.",
+	"payoff_information": "You can find your personal loan payoff information by logging into your online banking account and viewing your loan details. Alternatively, contact customer service to request a payoff quote."
+}
+
+@mcp.tool()
+def personal_loan_resource_query(topic: str) -> str:
+	"""
+	Query the centralized personal loan resource for FAQs and guides by topic.
+
+	Args:
+		topic (str): The topic keyword (e.g., 'schedule_payment', 'automated_vs_recurring', 'stop_automated_payment', 'payoff_information').
+
+	Returns:
+		str: The answer or guide for the topic, or a fallback message if not found.
+	"""
+	topic_key = topic.strip().lower().replace(" ", "_")
+	return PERSONAL_LOAN_RESOURCE.get(topic_key, "Sorry, no information found for that topic.")
+
 @mcp.tool()
 def personal_loan_application_status(session: dict | str | None = None) -> str:
 	"""
@@ -39,7 +61,6 @@ def personal_loan_application_status(session: dict | str | None = None) -> str:
 	loan_type = result['loan_type']
 	return json.dumps({"response": f"Your {loan_type} loan application (Loan Number: {loan_number}) is currently in '{status}' status.", "session": session})
 
-
 @mcp.prompt()
 def handle_personal_loan_number_input(user_input: str, session: dict | str | None = None) -> str:
 	"""
@@ -64,50 +85,6 @@ def handle_personal_loan_number_input(user_input: str, session: dict | str | Non
 		return personal_loan_application_status(session)
 	# If not awaiting loan number, just return the status tool (fallback)
 	return personal_loan_application_status(session)
-
-@mcp.tool()
-def personal_loan_schedule_payment() -> str:
-    """Provides instructions on how to schedule payments for a personal loan using another bank account.
-
-    Returns:
-        str: Step-by-step guide for scheduling personal loan payments, including linking external accounts.
-    """
-    return (
-        "To schedule a payment for your personal loan, log in to your online or mobile banking, go to the 'Payments' section, select your personal loan account, and choose 'Schedule Payment.' You can set up payments from your account or link an external bank account."
-    )
-
-@mcp.tool()
-def personal_loan_automated_vs_recurring() -> str:
-    """Explains the difference between automated and recurring payments for personal loans.
-
-    Returns:
-        str: Description of automated payments versus recurring payments, including setup and management details.
-    """
-    return (
-        "An automated payment is a payment that is automatically withdrawn from your account on a set date, often set up through your lender. A recurring payment is a payment you schedule to repeat at regular intervals, which you can manage or cancel through your online banking."
-    )
-
-@mcp.tool()
-def personal_loan_stop_automated_payment() -> str:
-    """Provides guidance on stopping an automated payment if funds are insufficient.
-
-    Returns:
-        str: Instructions for canceling or pausing an automated payment due to insufficient funds, including customer service contact and alternative actions.
-    """
-    return (
-        "If you will not have enough funds for an upcoming automated payment, log in to your online banking and cancel or pause the payment, or contact customer service as soon as possible to avoid fees. You may also transfer funds into your account before the payment date."
-    )
-
-@mcp.tool()
-def personal_loan_payoff_information() -> str:
-    """Provides information on where to find personal loan payoff information.
-
-    Returns:
-        str: Instructions for finding personal loan payoff information online or via customer service.
-    """
-    return (
-        "You can find your personal loan payoff information by logging into your online banking account and viewing your loan details. Alternatively, contact customer service to request a payoff quote."
-    )
 
 if __name__ == "__main__":
     # Initialize and run the server

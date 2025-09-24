@@ -111,4 +111,5 @@ mcp resource ideas, how can i encorporate mcp resource calls here
 
 uv run -m src.categories.auto_loan
 
-x
+refactor the rest into ressources. clean up all code. make consise todo list. clean up repo too. 
+start next task
