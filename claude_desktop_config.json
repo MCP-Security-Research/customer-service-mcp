@@ -14,54 +14,60 @@
       "command": "uv",
       "args": [
         "--directory",
-        "/Users/aidandyga/Downloads/SeniorThesis/customer-service-mcp/src/categories",
+        "/Users/aidandyga/Downloads/SeniorThesis/customer-service-mcp",
         "run",
-        "credit_card.py"
+        "-m",
+        "src.categories.credit_card"
       ]
     },
     "home-equity-customer-support-agent": {
       "command": "uv",
       "args": [
         "--directory",
-        "/Users/aidandyga/Downloads/SeniorThesis/customer-service-mcp/src/categories",
+        "/Users/aidandyga/Downloads/SeniorThesis/customer-service-mcp",
         "run",
-        "home_equity_loan.py"
+        "-m",
+        "src.categories.home_equity_loan"
       ]
     },
     "mortgage-customer-support-agent": {
       "command": "uv",
       "args": [
         "--directory",
-        "/Users/aidandyga/Downloads/SeniorThesis/customer-service-mcp/src/categories",
+        "/Users/aidandyga/Downloads/SeniorThesis/customer-service-mcp",
         "run",
-        "mortgage.py"
+        "-m",
+        "src.categories.mortgage"
       ]
     },
     "online-mobile-banking-customer-support-agent": {
       "command": "uv",
       "args": [
         "--directory",
-        "/Users/aidandyga/Downloads/SeniorThesis/customer-service-mcp/src/categories",
+        "/Users/aidandyga/Downloads/SeniorThesis/customer-service-mcp",
         "run",
-        "online_mobile_banking.py"
+        "-m",
+        "src.categories.online_mobile_banking"
       ]
     },
     "personal-loan-customer-support-agent": {
       "command": "uv",
       "args": [
         "--directory",
-        "/Users/aidandyga/Downloads/SeniorThesis/customer-service-mcp/src/categories",
+        "/Users/aidandyga/Downloads/SeniorThesis/customer-service-mcp",
         "run",
-        "personal_loan.py"
+        "-m",
+        "src.categories.personal_loan"
       ]
     },
     "student-loan-customer-support-agent": {
       "command": "uv",
       "args": [
         "--directory",
-        "/Users/aidandyga/Downloads/SeniorThesis/customer-service-mcp/src/categories",
+        "/Users/aidandyga/Downloads/SeniorThesis/customer-service-mcp",
         "run",
-        "student_loan.py"
+        "-m",
+        "src.categories.student_loan"
       ]
     }
   }

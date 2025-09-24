@@ -40,7 +40,7 @@ def auto_loan_application_status(session: dict | str | None = None) -> str:
 	return json.dumps({"response": f"Your {loan_type} loan application (Loan Number: {loan_number}) is currently in '{status}' status.", "session": session})
 
 @mcp.prompt()
-def handle_loan_number_input(user_input: str, session: dict | str | None = None) -> str:
+def handle_auto_loan_number_input(user_input: str, session: dict | str | None = None) -> str:
 	"""
 	Handle user input for loan number, store it in session/context, and return the application status.
 

@@ -1,20 +1,69 @@
 """Provides answers to common student loan questions."""
 
 from mcp.server.fastmcp import FastMCP
+from src.backend import get_application_status_by_type_and_number
+import json
 
 # Create an MCP server
 mcp = FastMCP("Student Loan Customer Support Agent")
 
 @mcp.tool()
-def student_loan_application_status() -> str:
-	"""Provides information on how to find the status of a student loan application.
+def student_loan_application_status(session: dict | str | None = None) -> str:
+	"""
+	Checks the status of a student loan application by prompting for the loan number if not provided.
+
+	Args:
+		session (dict | str | None): MCP session/context for storing user state. Can be a dict, str (JSON), or None.
 
 	Returns:
-		str: Instructions for checking your student loan application status, including online steps and customer service contact.
+		str: JSON string containing the status of the student loan application, or a prompt for the loan number.
 	"""
-	return (
-		"You can check your student loan application status by logging into your online banking account, navigating to the 'Loans' section, and selecting 'Application Status.' If you need further assistance, contact our customer service at 1-800-000-0000."
-	)
+	# Initialize session if None
+	if session is None:
+		session = {}
+	# If session is a string, parse it
+	if isinstance(session, str):
+		session = json.loads(session)
+	# Check if loan_number is already in session/context
+	loan_number = session.get('loan_number')
+	if not loan_number:
+		# Prompt user for loan number and store in session/context
+		session['awaiting_loan_number'] = True
+		return json.dumps({"request": "Please provide your student loan number to check the application status.", "session": session})
+
+	# If loan_number is provided, call the DB function
+	result = get_application_status_by_type_and_number("student", loan_number)
+	if result is None:
+		return json.dumps({"error": f"No application found for loan number {loan_number}. Please check the number and try again.", "session": session})
+	status = result['status']
+	loan_type = result['loan_type']
+	return json.dumps({"response": f"Your {loan_type} loan application (Loan Number: {loan_number}) is currently in '{status}' status.", "session": session})
+
+
+@mcp.prompt()
+def handle_student_loan_number_input(user_input: str, session: dict | str | None = None) -> str:
+	"""
+	Handle user input for student loan number, store it in session/context, and return the application status.
+
+	Args:
+		user_input (str): The loan number provided by the user.
+		session (dict | str | None): MCP session/context for storing user state. Can be a dict, str (JSON), or None.
+
+	Returns:
+		str: JSON string containing the status of the student loan application or a prompt for the loan number.
+	"""
+	# Initialize session if None
+	if session is None:
+		session = {}
+	# If session is a string, parse it
+	if isinstance(session, str):
+		session = json.loads(session)
+	if session.get('awaiting_loan_number'):
+		session['loan_number'] = user_input
+		session.pop('awaiting_loan_number', None)
+		return student_loan_application_status(session)
+	# If not awaiting loan number, just return the status tool (fallback)
+	return student_loan_application_status(session)
 
 @mcp.tool()
 def student_loan_eligibility_requirements() -> str:
