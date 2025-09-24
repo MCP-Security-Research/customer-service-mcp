@@ -1,14 +1,5 @@
 """Backend functions for gathering customer information for customer support purposes."""
 
-'''
-functions i need:
-x
-disput charge on credit card --> mail
-request replacement credit card --> mail
-x
-online banking forgot password --> mail, db
-'''
-
 import sqlite3
 import os
 

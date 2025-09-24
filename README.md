@@ -1,115 +1,50 @@
-# Banking Customer Service Model Context Protocol (MCP) Server
+# Banking Customer Service Model Context Protocol (MCP) Servers
 
 ## Overview
 
-bank customer support model context protocol agent
+This repository provides multiple examples of **model context protocol (mcp) servers** for demonstrating the capabilities of an agentic banking customer support framework. **Note:** This is *not* a production-ready application and is intended for educational and demonstration purposes only. Security and authentication are not fully implemented; it is assumed that users are already authenticated.
 
-- send and receive messages (via email, SMS, or chat) on behalf of customer service agent
-- It also integrates with backend systems to fetch customer account information, log service tickets, and escalate cases.
-- simulate a database of customer profiles and tickets.
-- common customer service issues
+This example includes an example MCP server for each of the following banking customer support categories:
 
-here are some example customer service categories that requests could be made under:
+- Auto Loan
+- Credit Card
+- Home Equity Loan
+- Mortgage
+- Online/Mobile Banking
+- Personal Loan
+- Student Loan
 
-auto loans
-home equity loans
-mortgage
-personal loans
-student loans
+## Requirements
 
-credit cards
-online and mobile banking
-personal banking
+To run the server, you will need:
 
------
+- Python (recommended: 3.11+)
+- [uv](https://github.com/uv-org/uv)
+- Claude Desktop (for agent configuration)
 
+## Setup Instructions
 
+- **Create the example database:**
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Development Tools
-
-```json
-example: claude_desktop_config.json
-{
-  "mcpServers": {
-    "customer-service-mcp": {
-      "command": "uv",
-      "args": [
-        "--directory",
-        "/Users/aidandyga/Downloads/SeniorThesis/customer-service-mcp/src",
-        "run",
-        "server.py"
-      ]
-    }
-  }
-}
+```bash
+uv run src/database.py
 ```
 
-## xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+- **Configure Claude Desktop:**
 
-have multiple files. import the functions into a main server file. look into how these are built???
-build it basically. then draw a diagram of how it works.
+```text
+- Open Claude Desktop.
+- Go to `Settings` > `Developer` > `Edit Config`.
+- Update the configuration as needed for your environment.
+```
 
-have multiple mcp servers. they all use some of the same functions in backedend and messaging.
+---
 
-sql lite and claude desktop for now. could transition to real application
+TODO List:
 
-requirements to run the server:
-
-claude desktop
-
-python x
-
-uv x
-
-and also do a setup guide
-
-'''
-overall description of how it will work here:
-
-whenever a customer service request is made, the mcp will determine the intent of the request and route it to the appropriate file/function.
-
-if the model cannot determine or needs more info, it will submit a ticket for a human to review.
-
-assume that the user is already logged in to their account. but if you really wanted to you could 2fa before request is sent
-'''
-
-----
-
-mcp client --> can ask users for info, should i do this as well? maybe later on
-
-uv run src/database.py
-
-is there a reliable way to store - pass around variables between functions in mcp?
-
-how can we prevent the llm from learning on data that i pass to it?? ex. what if i want to pass a customer info to it so that i can retrieve their account info, or loan info
-
-are there llms that dont keep learning from context. like what about an llm that loses context
-context is very important for this use case
-
-mcp resource ideas, how can i encorporate mcp resource calls here
-
-uv run -m src.categories.auto_loan
-
-refactor the rest into ressources. clean up all code. make consise todo list. clean up repo too. 
-start next task
+- function, disput charge on credit card --> mail
+- function, request replacement credit card --> mail
+- function, online banking forgot password --> mail, db
+- also need something for submitting tickets (if the model cannot determine or needs more info, it will submit a ticket for a human to review.)!!!
+- sql lite and claude desktop for now. could transition to real application
+- mcp client --> can ask users for info, should i do this as well? maybe later on
