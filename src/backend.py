@@ -16,11 +16,12 @@ online banking forgot password --> mail, db
 import sqlite3
 import os
 
-def get_application_status_by_number(loan_number):
+def get_application_status_by_type_and_number(loan_type: str, loan_number: str) -> dict | None:
     """
-    Retrieve the status and type of a loan application by loan number.
+    Retrieve the status and type of a loan application by loan type and loan number.
 
     Args:
+        loan_type (str): The type of loan to look up (e.g., 'auto', 'credit_card').
         loan_number (str): The unique loan number to look up.
 
     Returns:
@@ -32,8 +33,8 @@ def get_application_status_by_number(loan_number):
     status_map = {0: 'pending', 1: 'active'}
     cursor.execute("""
         SELECT loan_type, is_active, loan_number FROM loans
-        WHERE loan_number = ? AND is_active IN (0, 1)
-    """, (loan_number,))
+        WHERE loan_type = ? AND loan_number = ? AND is_active IN (0, 1)
+    """, (loan_type, loan_number))
     row = cursor.fetchone()
     conn.close()
     if row:

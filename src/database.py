@@ -124,7 +124,7 @@ def insert_example_data() -> None:
 		'2020-05-01'
 	))
 
-	# Insert a loan for the customer (pending state)
+	# Insert a personal loan
 	c.execute("""
 		INSERT OR IGNORE INTO loans (customer_id, loan_number, loan_type, principal_amount, interest_rate, term_length, start_date, end_date, is_active)
 		VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
@@ -138,6 +138,70 @@ def insert_example_data() -> None:
 		'2022-01-01',
 		'2025-01-01',
 		0  # 0 = pending
+	))
+
+	# Insert an auto loan
+	c.execute("""
+		INSERT OR IGNORE INTO loans (customer_id, loan_number, loan_type, principal_amount, interest_rate, term_length, start_date, end_date, is_active)
+		VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+	""", (
+		customer_id,
+		'LN2002',
+		'auto',
+		12000.00,
+		3.9,
+		60,
+		'2023-03-01',
+		'2028-03-01',
+		0
+	))
+
+	# Insert a student loan
+	c.execute("""
+		INSERT OR IGNORE INTO loans (customer_id, loan_number, loan_type, principal_amount, interest_rate, term_length, start_date, end_date, is_active)
+		VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+	""", (
+		customer_id,
+		'LN2003',
+		'student',
+		20000.00,
+		5.0,
+		120,
+		'2021-09-01',
+		'2031-09-01',
+		0
+	))
+
+	# Insert a mortgage loan
+	c.execute("""
+		INSERT OR IGNORE INTO loans (customer_id, loan_number, loan_type, principal_amount, interest_rate, term_length, start_date, end_date, is_active)
+		VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+	""", (
+		customer_id,
+		'LN2004',
+		'mortgage',
+		250000.00,
+		3.2,
+		360,
+		'2020-06-01',
+		'2050-06-01',
+		0
+	))
+
+	# Insert a home equity loan
+	c.execute("""
+		INSERT OR IGNORE INTO loans (customer_id, loan_number, loan_type, principal_amount, interest_rate, term_length, start_date, end_date, is_active)
+		VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+	""", (
+		customer_id,
+		'LN2005',
+		'home_equity',
+		40000.00,
+		4.0,
+		180,
+		'2024-02-01',
+		'2039-02-01',
+		0
 	))
 
 	# Insert a credit card for the customer
