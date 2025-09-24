@@ -7,6 +7,28 @@ import json
 # Create an MCP server
 mcp = FastMCP("Auto Loan Customer Support Agent")
 
+# Centralized MCP resource for auto loan FAQs/guides
+AUTO_LOAN_RESOURCE = {
+	"schedule_payment": "To schedule a payment for your auto loan, log in to your online or mobile banking, go to the 'Payments' section, select your auto loan account, and choose 'Schedule Payment.' You can set up one-time or recurring payments.",
+	"automated_vs_recurring": "An automated payment is a payment that is automatically withdrawn from your account on a set date, often set up through your lender. A recurring payment is a payment you schedule to repeat at regular intervals, which you can manage or cancel through your online banking.",
+	"insufficient_funds": "If you do not have enough funds for an upcoming automated payment, log in to your online banking and cancel or pause the payment, or contact customer service as soon as possible to avoid fees. You may also transfer funds into your account before the payment date."
+}
+
+# Most MCP Python libraries (like fastmcp) don’t have a built-in @mcp.resource decorator. Instead, you define resources as data structures (dicts, lists, etc.) and expose them via tools 
+@mcp.tool()
+def auto_loan_resource_query(topic: str) -> str:
+	"""
+	Query the centralized auto loan resource for FAQs and guides by topic.
+
+	Args:
+		topic (str): The topic keyword (e.g., 'schedule_payment', 'automated_vs_recurring', 'insufficient_funds').
+
+	Returns:
+		str: The answer or guide for the topic, or a fallback message if not found.
+	"""
+	topic_key = topic.strip().lower().replace(" ", "_")
+	return AUTO_LOAN_RESOURCE.get(topic_key, "Sorry, no information found for that topic.")
+
 @mcp.tool()
 def auto_loan_application_status(session: dict | str | None = None) -> str:
 	"""
@@ -63,39 +85,6 @@ def handle_auto_loan_number_input(user_input: str, session: dict | str | None = 
 		return auto_loan_application_status(session)
 	# If not awaiting loan number, just return the status tool (fallback)
 	return auto_loan_application_status(session)
-
-@mcp.tool()
-def auto_loan_schedule_payment() -> str:
-	"""Provides instructions on how to schedule payments for an auto loan.
-
-	Returns:
-		str: Step-by-step guide for scheduling one-time or recurring auto loan payments via online or mobile banking.
-	"""
-	return (
-		"To schedule a payment for your auto loan, log in to your online or mobile banking, go to the 'Payments' section, select your auto loan account, and choose 'Schedule Payment.' You can set up one-time or recurring payments."
-	)
-
-@mcp.tool()
-def auto_loan_automated_recurring_payments() -> str:
-	"""Explains the difference between automated and recurring auto loan payments.
-
-	Returns:
-		str: Description of automated payments versus recurring payments, including setup and management details.
-	"""
-	return (
-		"An automated payment is a payment that is automatically withdrawn from your account on a set date, often set up through your lender. A recurring payment is a payment you schedule to repeat at regular intervals, which you can manage or cancel through your online banking."
-	)
-
-@mcp.tool()
-def insufficient_funds_stop_auto_loan_automated_payment() -> str:
-	"""Provides guidance on stopping an automated auto loan payment if there are insufficient funds.
-
-	Returns:
-		str: Instructions for canceling or pausing an automated payment due to insufficient funds, including customer service contact and alternative actions.
-	"""
-	return (
-		"If you do not have enough funds for an upcoming automated payment, log in to your online banking and cancel or pause the payment, or contact customer service as soon as possible to avoid fees. You may also transfer funds into your account before the payment date."
-	)
 
 if __name__ == "__main__":
     # Initialize and run the server

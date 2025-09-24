@@ -110,3 +110,5 @@ context is very important for this use case
 mcp resource ideas, how can i encorporate mcp resource calls here
 
 uv run -m src.categories.auto_loan
+
+x
