@@ -11,3 +11,6 @@ __pycache__/
 
 # Database files
 *.db
+
+# Environment files
+.env

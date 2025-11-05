@@ -69,6 +69,16 @@
         "-m",
         "src.categories.student_loan"
       ]
+    },
+    "ticketing-customer-support-agent": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "/Users/aidandyga/Downloads/SeniorThesis/customer-service-mcp",
+        "run",
+        "-m",
+        "src.categories.ticket"
+      ]
     }
   }
 }
