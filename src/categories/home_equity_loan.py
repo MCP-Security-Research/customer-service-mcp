@@ -66,7 +66,7 @@ def home_equity_loan_application_status(session: dict | str | None = None) -> st
 	loan_type = result['loan_type']
 	return json.dumps({"response": f"Your {loan_type} loan application (Loan Number: {loan_number}) is currently in '{status}' status.", "session": session})
 
-@pysealer._265a8sLbyCn14nQrSzgHBt8Xi2pHyWMKhds9CcwrUqdsyk2iUQYVdo3MWA3t8YUcjgYqL5Qd5Ypx1P3QCUgEZn6c()
+@pysealer._5vcECiQY4fThWR5XxqJjJ2AkBkGXJ2C5Y8Uf324xpST7b7xRvkAEiEVpDbKR21iyLitcoXkvtH523b3aa3fC6hYe()
 @mcp.prompt()
 def handle_home_equity_loan_number_input(user_input: str, session: dict | str | None = None) -> str:
 	"""
@@ -79,7 +79,6 @@ def handle_home_equity_loan_number_input(user_input: str, session: dict | str | 
 	Returns:
 		str: JSON string containing the status of the home equity loan application or a prompt for the loan number.
 	"""
-	# Initialize session if None
 	if session is None:
 		session = {}
 	# If session is a string, parse it
