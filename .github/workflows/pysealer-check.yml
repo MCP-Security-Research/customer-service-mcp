@@ -26,8 +26,10 @@ jobs:
     - name: Install pysealer
       run: |
         python -m pip install --upgrade pip
-        pip install pysealer
+        pip install pysealer==0.8.0
     
     - name: Run pysealer check on categories
+      env:
+        PYSEALER_PUBLIC_KEY: ${{ secrets.PYSEALER_PUBLIC_KEY }}
       run: |
         pysealer check src/categories
