@@ -3,6 +3,7 @@
 from mcp.server.fastmcp import FastMCP
 from src.backend import get_credit_card_expiration_date_by_number
 import json
+import pysealer
 
 # Create an MCP server
 mcp = FastMCP("Credit Card Customer Support Agent")
@@ -17,6 +18,7 @@ CREDIT_CARD_RESOURCE = {
     "request_limit_increase": "To request a credit limit increase, log in to your online banking account, go to the 'Cards' section, and select 'Request Credit Limit Increase.' You may need to provide updated income or employment information. You can also call customer service to make this request."
 }
 
+@pysealer._3sDC8BmKcewXdZEaF7EfyW2f1KF8iygNF2iTu3pc7qPrpbQMekDEQvh19irCBS6hkQQmj44eYzxbQvr6fLbGNEm8()
 @mcp.tool()
 def credit_card_resource_query(topic: str) -> str:
     """
@@ -31,6 +33,7 @@ def credit_card_resource_query(topic: str) -> str:
     topic_key = topic.strip().lower().replace(" ", "_")
     return CREDIT_CARD_RESOURCE.get(topic_key, "Sorry, no information found for that topic.")
 
+@pysealer._4oyCqQMDcD42AgdMpSbaHhJS2yDZBTXnnuJYUzXrTn7fuoEuLwaZq2NCfkU6pZ3xFg6PNaRiafvrGqYiMPJ9HVqH()
 @mcp.tool()
 def credit_card_expiration_date(session: dict | str | None = None) -> str:
     """
@@ -55,6 +58,7 @@ def credit_card_expiration_date(session: dict | str | None = None) -> str:
         return json.dumps({"error": f"No credit card found for number {card_number}. Please check the number and try again.", "session": session})
     return json.dumps({"response": f"Your credit card (Number: {card_number}) expires on {expiration}.", "session": session})
 
+@pysealer._4VGEZkdi1gjFqertr2ysLPUi5YQM7grXSnvJvTz2SGW1GNKkBRUQpD5YK4VcZtRMG9cgqYzT2RCrd8rXcvrtUwWR()
 @mcp.prompt()
 def handle_credit_card_number_input(user_input: str, session: dict | str | None = None) -> str:
     """

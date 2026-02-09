@@ -3,6 +3,7 @@
 from mcp.server.fastmcp import FastMCP
 from src.backend import get_application_status_by_type_and_number
 import json
+import pysealer
 
 # Create an MCP server
 mcp = FastMCP("Auto Loan Customer Support Agent")
@@ -15,6 +16,7 @@ AUTO_LOAN_RESOURCE = {
 }
 
 # Most MCP Python libraries (like fastmcp) don’t have a built-in @mcp.resource decorator. Instead, you define resources as data structures (dicts, lists, etc.) and expose them via tools 
+@pysealer._46pseJGS8RioXoniR3haHMHej5w4CvuKpTywEtogveXM9hRhCFeB38uGYM5bib8CfRnf9puCV5fWjSTgUrAyUBaF()
 @mcp.tool()
 def auto_loan_resource_query(topic: str) -> str:
 	"""
@@ -29,6 +31,7 @@ def auto_loan_resource_query(topic: str) -> str:
 	topic_key = topic.strip().lower().replace(" ", "_")
 	return AUTO_LOAN_RESOURCE.get(topic_key, "Sorry, no information found for that topic.")
 
+@pysealer._FBwW7hNRYQ1NNBp5NfqRwfVcX4mHm488snHQ1ptFNjQBBFkeHDqZW4rKxZwL5Pi2TpHtdhHX6PJDkeHDEi3S2Nu()
 @mcp.tool()
 def auto_loan_application_status(session: dict | str | None = None) -> str:
 	"""
@@ -61,6 +64,7 @@ def auto_loan_application_status(session: dict | str | None = None) -> str:
 	loan_type = result['loan_type']
 	return json.dumps({"response": f"Your {loan_type} loan application (Loan Number: {loan_number}) is currently in '{status}' status.", "session": session})
 
+@pysealer._34aNpHEchcdx1oaHwxtNevZvWS12Q4SdeD5RoPzrPd7S1xp1BWPzNqXzV4okfh9jfQahuRm3zMpqeKpHM4tTFNH9()
 @mcp.prompt()
 def handle_auto_loan_number_input(user_input: str, session: dict | str | None = None) -> str:
 	"""

@@ -3,6 +3,7 @@
 from mcp.server.fastmcp import FastMCP
 from src.backend import get_application_status_by_type_and_number
 import json
+import pysealer
 
 # Create an MCP server
 mcp = FastMCP("Home Equity Loan Customer Support Agent")
@@ -17,6 +18,7 @@ HOME_EQUITY_LOAN_RESOURCE = {
 	"payment_history": "To view your payment history for your home equity loan, log in to your online banking account, select your home equity loan account, and navigate to the 'Payment History' section. You can also request a statement from customer service."
 }
 
+@pysealer._4DzkjwfLm8zP5y1ZgYfJdMshmenbvNYUxGEH9xKvpg7Fhpx2w2oaFwx9SBvMacpzBTS21MwujbmyB3Ljd9G98NKB()
 @mcp.tool()
 def home_equity_loan_resource_query(topic: str) -> str:
 	"""
@@ -31,6 +33,7 @@ def home_equity_loan_resource_query(topic: str) -> str:
 	topic_key = topic.strip().lower().replace(" ", "_")
 	return HOME_EQUITY_LOAN_RESOURCE.get(topic_key, "Sorry, no information found for that topic.")
 
+@pysealer._3E327SmA9pyvjVs3Q73xMTsvHT3Pv7mEizoZX3zrfDqR6njbKmjT75WSedWy7AkXSrbzqc4vbwhxxUkshUrygQfy()
 @mcp.tool()
 def home_equity_loan_application_status(session: dict | str | None = None) -> str:
 	"""
@@ -63,6 +66,7 @@ def home_equity_loan_application_status(session: dict | str | None = None) -> st
 	loan_type = result['loan_type']
 	return json.dumps({"response": f"Your {loan_type} loan application (Loan Number: {loan_number}) is currently in '{status}' status.", "session": session})
 
+@pysealer._265a8sLbyCn14nQrSzgHBt8Xi2pHyWMKhds9CcwrUqdsyk2iUQYVdo3MWA3t8YUcjgYqL5Qd5Ypx1P3QCUgEZn6c()
 @mcp.prompt()
 def handle_home_equity_loan_number_input(user_input: str, session: dict | str | None = None) -> str:
 	"""
