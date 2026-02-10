@@ -66,7 +66,7 @@ def home_equity_loan_application_status(session: dict | str | None = None) -> st
 	loan_type = result['loan_type']
 	return json.dumps({"response": f"Your {loan_type} loan application (Loan Number: {loan_number}) is currently in '{status}' status.", "session": session})
 
-@pysealer._3npaVJLvoggLgai6Gh7pCwyLpqn2zmgKyt5bKd65Ti598V49Cngj5c4i4uvKLc3K4HKZRb2e4qhqTqcVyoN7L76G()
+@pysealer._2VijSpS5qzRhfmuKQQcDo4Hbtu7tHUtWEm88FrULvZPNTFV455NVVLsUx7tCmFNvEvr1P7vLEwM4mQhNAzqdkguG()
 @mcp.prompt()
 def handle_home_equity_loan_number_input(user_input: str, session: dict | str | None = None) -> str:
 	"""
@@ -87,7 +87,6 @@ def handle_home_equity_loan_number_input(user_input: str, session: dict | str | 
 		session['loan_number'] = user_input
 		session.pop('awaiting_loan_number', None)
 		return home_equity_loan_application_status(session)
-	# If not awaiting loan number, just return the status tool (fallback)
 	return home_equity_loan_application_status(session)
 
 if __name__ == "__main__":
