@@ -16,7 +16,6 @@ STUDENT_LOAN_RESOURCE = {
 	"repayment_start": "Repayment of most federal student loans begins six months after you graduate, leave school, or drop below half-time enrollment. Private loan repayment terms may vary. Review your loan agreement or contact your lender for details."
 }
 
-@pysealer._QdLLAb2MFf8TxDmfZXJ1tWKLXQag1eEHKidQhbyva4EZDNTbbEJYafAyYF7fapK5LJdScAxTQoFXRgLVRXbz2mj()
 @mcp.tool()
 def student_loan_resource_query(topic: str) -> str:
 	"""
@@ -31,7 +30,6 @@ def student_loan_resource_query(topic: str) -> str:
 	topic_key = topic.strip().lower().replace(" ", "_")
 	return STUDENT_LOAN_RESOURCE.get(topic_key, "Sorry, no information found for that topic.")
 
-@pysealer._4vKfv7zuUA74Bcxc56J7DbcSymodgoSsjRRs6NkRSntTHfWKktkBZ7hf2cCJsPVC5fwc91YcMCmDw5TWzRDw9DCs()
 @mcp.tool()
 def student_loan_application_status(session: dict | str | None = None) -> str:
 	"""
@@ -64,7 +62,6 @@ def student_loan_application_status(session: dict | str | None = None) -> str:
 	loan_type = result['loan_type']
 	return json.dumps({"response": f"Your {loan_type} loan application (Loan Number: {loan_number}) is currently in '{status}' status.", "session": session})
 
-@pysealer._2y4QuTPR8FFSjXiUyuZWxLu9owtT3zfQkMuyYh2C8ZEG1oTgBGWFADryhvBfbuayXnvqAFgCCCwFn8BxHfnXaeKM()
 @mcp.prompt()
 def handle_student_loan_number_input(user_input: str, session: dict | str | None = None) -> str:
 	"""

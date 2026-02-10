@@ -15,7 +15,6 @@ MORTGAGE_RESOURCE = {
 	"schedule_payments": "To schedule payments for your mortgage, log in to your online or mobile banking, navigate to the 'Payments' section, select your mortgage account, and choose 'Schedule Payment.' You can set up one-time or recurring payments to ensure your mortgage is paid on time."
 }
 
-@pysealer._5aGN3vG4Wukh3rFHT1f5zZGejbVV26tyFTXWthhwZJgcReUkxUxctoHcHkG2rTEVvvcUgA7r2K5FMHGPsWBEWHbv()
 @mcp.tool()
 def mortgage_resource_query(topic: str) -> str:
 	"""
@@ -30,7 +29,6 @@ def mortgage_resource_query(topic: str) -> str:
 	topic_key = topic.strip().lower().replace(" ", "_")
 	return MORTGAGE_RESOURCE.get(topic_key, "Sorry, no information found for that topic.")
 
-@pysealer._5vFkep33vpbH5j2cJP3aqc8goa5wxFe34uUi9ichWThAGxZJJmFvbexCrXb3TxqhZxNFBrDPMzVdYsJ491MLsuFH()
 @mcp.tool()
 def mortgage_application_status(session: dict | str | None = None) -> str:
 	"""
@@ -63,7 +61,6 @@ def mortgage_application_status(session: dict | str | None = None) -> str:
 	loan_type = result['loan_type']
 	return json.dumps({"response": f"Your {loan_type} loan application (Loan Number: {loan_number}) is currently in '{status}' status.", "session": session})
 
-@pysealer._3KwnLaGMxA2q6VEoPR2W79McKw4hWdKkN7kusCRemmR35vDaLyfCVXYioZrBMoTpQDmEtNif1gChksLTYfETvcci()
 @mcp.prompt()
 def handle_mortgage_loan_number_input(user_input: str, session: dict | str | None = None) -> str:
 	"""
