@@ -13,23 +13,36 @@ on:
 jobs:
   pysealer-check:
     runs-on: ubuntu-latest
-    
+    # Skip fork PRs where secrets are not available
+    if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-    
+
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
         python-version: '3.13'
-    
+
     - name: Install pysealer
       run: |
         python -m pip install --upgrade pip
-        pip install pysealer==0.8.2
-    
-    - name: Run pysealer check on categories
+        pip install pysealer==0.8.7
+
+    - name: Normalize and validate public key
       env:
-        PYSEALER_PUBLIC_KEY: ${{ secrets.PYSEALER_PUBLIC_KEY }}
+        RAW_KEY: ${{ secrets.PYSEALER_PUBLIC_KEY }}
+      run: |
+        KEY="$(printf '%s' "$RAW_KEY" | tr -d '\r\n' | sed "s/^['\"]//;s/['\"]$//")"
+        if [ -z "$KEY" ]; then
+          echo "PYSEALER_PUBLIC_KEY is empty or unavailable"
+          exit 1
+        fi
+        # Do NOT echo full key; only length for debug
+        echo "PYSEALER_PUBLIC_KEY length: ${#KEY}"
+        echo "PYSEALER_PUBLIC_KEY=$KEY" >> "$GITHUB_ENV"
+
+    - name: Run pysealer check on categories
       run: |
         pysealer check src/categories
