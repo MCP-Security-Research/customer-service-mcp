@@ -16,7 +16,7 @@ AUTO_LOAN_RESOURCE = {
 }
 
 # Most MCP Python libraries (like fastmcp) don’t have a built-in @mcp.resource decorator. Instead, you define resources as data structures (dicts, lists, etc.) and expose them via tools 
-@pysealer._4qg4BQrgtx4WbGqGB7WERQH7Xb68ojxXCZk4K4x63JgGqJbuQR7LoSMr8pnj7LNj9xFSZeRexZZETDUijBadbURV()
+@pysealer._1dMCJisj11yUTAhw4NjzjRSdTyMhQfs5vKwRb24ZJoVkD4VgFq3pmES5uSKmKprFGCPu1iogFc7XF1yi8dLdzie()
 @mcp.tool()
 def auto_loan_resource_query(topic: str) -> str:
 	"""
@@ -31,7 +31,7 @@ def auto_loan_resource_query(topic: str) -> str:
 	topic_key = topic.strip().lower().replace(" ", "_")
 	return AUTO_LOAN_RESOURCE.get(topic_key, "Sorry, no information found for that topic.")
 
-@pysealer._4LDy9Tk93EkzXuiAWveQFUicrYSquRYZifwh7z9XoAh2D5Byw9Lc3Bs82h9WnB8Y95GmhyWRRcnVJoroJXccXVsB()
+@pysealer._34a5b8zzQJzseJLPjCUdtBehwwWb9EcHjwPxU5brGGsMUJHo3P6Vw5efSUVmACamW7rCxAv2bSzsbSuD2CYq6Wef()
 @mcp.tool()
 def auto_loan_application_status(session: dict | str | None = None) -> str:
 	"""
@@ -64,7 +64,7 @@ def auto_loan_application_status(session: dict | str | None = None) -> str:
 	loan_type = result['loan_type']
 	return json.dumps({"response": f"Your {loan_type} loan application (Loan Number: {loan_number}) is currently in '{status}' status.", "session": session})
 
-@pysealer._2ZqWHwrPiSvryUB42yiDBtDv4Kp9geW1NwS1dEtvWJNxrpDdYzaKCDoUGw4AZt5AYHwLMobwCnjChsFw4NTehFC3()
+@pysealer._5gfu6VJAJ18x4VQuXw9LQzSs3xCR3RnzcZYz3X7f2r5RRqyqgfUAynuCa6rqYjq7Pihiem4kqjqVkHcwfsJkQJ2A()
 @mcp.prompt()
 def handle_auto_loan_number_input(user_input: str, session: dict | str | None = None) -> str:
 	"""

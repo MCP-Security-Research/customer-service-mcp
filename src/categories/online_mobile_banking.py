@@ -21,7 +21,7 @@ ONLINE_MOBILE_BANKING_RESOURCE = {
 	"endorse_check_for_mobile_deposit": "To endorse a check for Mobile Deposit, sign the back and write 'For Mobile Deposit Only' below your signature."
 }
 
-@pysealer._4TQR3WCBS6MH5TmbKC5TXePYF6ihvxSHUMaTcCdcNvUtzzRVQzTsDN2xykPHNxqrYVjooM79gw6A6Jaco4s5w9n6()
+@pysealer._2tmFAcLML12VQpN5pv8tgPbrb9hTXH74mQDGY22ZEb1mMNM3efDrM39WzhuhDNdD4zkPhcQhCRoAoLpTbuzRknpq()
 @mcp.tool()
 def online_mobile_banking_resource_query(topic: str) -> str:
 	"""
