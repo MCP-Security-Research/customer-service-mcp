@@ -16,6 +16,7 @@ AUTO_LOAN_RESOURCE = {
 }
 
 # Most MCP Python libraries (like fastmcp) don’t have a built-in @mcp.resource decorator. Instead, you define resources as data structures (dicts, lists, etc.) and expose them via tools 
+@pysealer._4n3BgWfYJ8aexUzYj7uqD2PhwXNqqHFHBy3t3qMb2UGvxFD6fNwQqH6KuWyot9hK6aTD4AehpEgsFHbhZqgbvzUV()
 @mcp.tool()
 def auto_loan_resource_query(topic: str) -> str:
 	"""
@@ -30,6 +31,7 @@ def auto_loan_resource_query(topic: str) -> str:
 	topic_key = topic.strip().lower().replace(" ", "_")
 	return AUTO_LOAN_RESOURCE.get(topic_key, "Sorry, no information found for that topic.")
 
+@pysealer._gZRNhDPxo7imzV2no8Reeo2HwLEjZ2Q4xGCsa1QZsWb5km8cNU6Z3f37vU1PPK6ZG9xqYxuMhhJ9QsZXeBmptAx()
 @mcp.tool()
 def auto_loan_application_status(session: dict | str | None = None) -> str:
 	"""
@@ -62,6 +64,7 @@ def auto_loan_application_status(session: dict | str | None = None) -> str:
 	loan_type = result['loan_type']
 	return json.dumps({"response": f"Your {loan_type} loan application (Loan Number: {loan_number}) is currently in '{status}' status.", "session": session})
 
+@pysealer._3Yhod6XVTTkuREav9hKvosCUnMuCkycsVfgHxmqQeYd3upELvN7Rubecb1g3MuLLRSFMtTjA6CxMbTcSQgtz7Zyt()
 @mcp.prompt()
 def handle_auto_loan_number_input(user_input: str, session: dict | str | None = None) -> str:
 	"""
