@@ -28,7 +28,7 @@ jobs:
     - name: Install pysealer
       run: |
         python -m pip install --upgrade pip
-        pip install pysealer==0.8.8
+        pip install pysealer==0.8.9
 
     - name: Normalize and validate public key
       env:
