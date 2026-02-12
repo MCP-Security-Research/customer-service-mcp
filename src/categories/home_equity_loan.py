@@ -18,6 +18,7 @@ HOME_EQUITY_LOAN_RESOURCE = {
 	"payment_history": "To view your payment history for your home equity loan, log in to your online banking account, select your home equity loan account, and navigate to the 'Payment History' section. You can also request a statement from customer service."
 }
 
+@pysealer._3wMmHzwRjnLDVYxKpzkeLxJsqyeg65G2X3ABhswVeNCiZmr5QG8rXeFd1ZDjAoURrU2BZomCYfLSApwaoMV63Nc9()
 @mcp.tool()
 def home_equity_loan_resource_query(topic: str) -> str:
 	"""
@@ -32,6 +33,7 @@ def home_equity_loan_resource_query(topic: str) -> str:
 	topic_key = topic.strip().lower().replace(" ", "_")
 	return HOME_EQUITY_LOAN_RESOURCE.get(topic_key, "Sorry, no information found for that topic.")
 
+@pysealer._3sWDysHjJCzFu2S9VJDtiyzcyHHRZns15d56p1pVZzHPtHxs759UyYa2eAjmnJUYy7tpXqt4n5p8R5BehErET9KR()
 @mcp.tool()
 def home_equity_loan_application_status(session: dict | str | None = None) -> str:
 	"""
@@ -64,6 +66,7 @@ def home_equity_loan_application_status(session: dict | str | None = None) -> st
 	loan_type = result['loan_type']
 	return json.dumps({"response": f"Your {loan_type} loan application (Loan Number: {loan_number}) is currently in '{status}' status.", "session": session})
 
+@pysealer._53KnywyCiJaZpSUHVAHhWAu14ZAGuL4qBLawva6YRfpiYvHD6EkiFYnrKpg5GY5Ebsfx634sURexV4VzabJMAMq9()
 @mcp.prompt()
 def handle_home_equity_loan_number_input(user_input: str, session: dict | str | None = None) -> str:
 	"""
