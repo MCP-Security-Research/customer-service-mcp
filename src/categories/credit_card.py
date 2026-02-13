@@ -33,7 +33,7 @@ def credit_card_resource_query(topic: str) -> str:
     topic_key = topic.strip().lower().replace(" ", "_")
     return CREDIT_CARD_RESOURCE.get(topic_key, "Sorry, no information found for that topic.")
 
-@pysealer._2NkXvJt7XmxkC1u8jUHDaqKeYuwJ231mJS87RmzbxCPW5hQVSoMrdTRXXGYABzALMiAwtQJtGqPG2n5vkkTZ4otA()
+@pysealer._3sAHtz81NTwVU5FwJzrYXsFq1FPuYRTtmYJvkH64jphxAcyy6zKGaWQydDcL1G5b29NsEnwqawwYVgkkhycqszne()
 @mcp.tool()
 def credit_card_expiration_date(session: dict | str | None = None) -> str:
     """
@@ -45,7 +45,6 @@ def credit_card_expiration_date(session: dict | str | None = None) -> str:
     Returns:
         str: JSON string containing the expiration date, or a prompt for the card number.
     """
-    # test comment
     if session is None:
         session = {}
     # this should cause failure
