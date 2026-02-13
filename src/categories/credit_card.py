@@ -47,7 +47,6 @@ def credit_card_expiration_date(session: dict | str | None = None) -> str:
     """
     if session is None:
         session = {}
-    # this should cause failure
     if isinstance(session, str):
         session = json.loads(session)
     card_number = session.get('card_number')
