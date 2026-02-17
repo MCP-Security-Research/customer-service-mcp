@@ -33,7 +33,7 @@ def credit_card_resource_query(topic: str) -> str:
     topic_key = topic.strip().lower().replace(" ", "_")
     return CREDIT_CARD_RESOURCE.get(topic_key, "Sorry, no information found for that topic.")
 
-@pysealer._3sAHtz81NTwVU5FwJzrYXsFq1FPuYRTtmYJvkH64jphxAcyy6zKGaWQydDcL1G5b29NsEnwqawwYVgkkhycqszne()
+@pysealer._ub98UTzFPJfexWDeAi6WU2kVddEg4R62kzFuNwA7ZeyAUuEwDnA89ZxBsYw8yJMPSUvPaQb28SmktmZ9K2gC9Ch()
 @mcp.tool()
 def credit_card_expiration_date(session: dict | str | None = None) -> str:
     """
@@ -82,5 +82,4 @@ def handle_credit_card_number_input(user_input: str, session: dict | str | None 
     return credit_card_expiration_date(session)
 
 if __name__ == "__main__":
-    # Initialize and run the server
     mcp.run(transport='stdio')
