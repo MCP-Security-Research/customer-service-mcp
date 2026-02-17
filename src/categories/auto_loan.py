@@ -47,7 +47,6 @@ def auto_loan_application_status(session: dict | str | None = None) -> str:
 		session = {}
 	if isinstance(session, str):
 		session = json.loads(session)
-	# Check if loan_number is already in session/context
 	loan_number = session.get('loan_number')
 	if not loan_number:
 		# Prompt user for loan number and store in session/context
