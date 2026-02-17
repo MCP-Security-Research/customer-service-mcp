@@ -30,7 +30,7 @@ jobs:
     - name: Install pysealer
       run: |
         python -m pip install --upgrade pip
-        pip install pysealer==0.9.0
+        pip install pysealer==0.9.1
 
     - name: Debug GitHub context + git access
       shell: bash

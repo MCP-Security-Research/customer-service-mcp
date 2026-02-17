@@ -31,7 +31,7 @@ def auto_loan_resource_query(topic: str) -> str:
 	topic_key = topic.strip().lower().replace(" ", "_")
 	return AUTO_LOAN_RESOURCE.get(topic_key, "Sorry, no information found for that topic.")
 
-@pysealer._6qXYvAcUQK7DWgzJsbJYeEQAyLHqtxaoQmdBApJiNsRjNG11bVhhVhh22Qfg6yxCJrm6WsoSBfoNf4UeV2LjaxG()
+@pysealer._4oCBMq7rihH6YVSCaan2xjNoxG6ZKBAbX3ucfUMQuavUVoP9bxopWkqdfLeMKeq7mziU4Sitrwb7AW1vzVc6uDCD()
 @mcp.tool()
 def auto_loan_application_status(session: dict | str | None = None) -> str:
 	"""
@@ -45,7 +45,6 @@ def auto_loan_application_status(session: dict | str | None = None) -> str:
 	"""
 	if session is None:
 		session = {}
-	# If session is a string, parse it
 	if isinstance(session, str):
 		session = json.loads(session)
 	# Check if loan_number is already in session/context
