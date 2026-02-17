@@ -43,7 +43,6 @@ def auto_loan_application_status(session: dict | str | None = None) -> str:
 	Returns:
 		str: JSON string containing the status of the auto loan application, or a prompt for the loan number.
 	"""
-	# Initialize session if None
 	if session is None:
 		session = {}
 	# If session is a string, parse it
