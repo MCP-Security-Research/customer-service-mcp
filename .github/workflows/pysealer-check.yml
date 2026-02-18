@@ -36,5 +36,5 @@ jobs:
       env:
           PYSEALER_PUBLIC_KEY: ${{ secrets.PYSEALER_PUBLIC_KEY }}
       run: |
-        PYSEALER_OUTPUT = $(pysealer check src/categories)
+        PYSEALER_OUTPUT=$(pysealer check src/categories)
         echo "$PYSEALER_OUTPUT" > $GITHUB_STEP_SUMMARY
