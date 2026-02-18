@@ -4,7 +4,7 @@
       "command": "uv",
       "args": [
         "--directory",
-        "/Users/aidandyga/Downloads/SeniorThesis/customer-service-mcp",
+        "/absolute/path/to/customer-service-mcp",
         "run",
         "-m",
         "src.categories.auto_loan"
@@ -14,7 +14,7 @@
       "command": "uv",
       "args": [
         "--directory",
-        "/Users/aidandyga/Downloads/SeniorThesis/customer-service-mcp",
+        "/absolute/path/to/customer-service-mcp",
         "run",
         "-m",
         "src.categories.credit_card"
@@ -24,7 +24,7 @@
       "command": "uv",
       "args": [
         "--directory",
-        "/Users/aidandyga/Downloads/SeniorThesis/customer-service-mcp",
+        "/absolute/path/to/customer-service-mcp",
         "run",
         "-m",
         "src.categories.home_equity_loan"
@@ -34,7 +34,7 @@
       "command": "uv",
       "args": [
         "--directory",
-        "/Users/aidandyga/Downloads/SeniorThesis/customer-service-mcp",
+        "/absolute/path/to/customer-service-mcp",
         "run",
         "-m",
         "src.categories.mortgage"
@@ -44,7 +44,7 @@
       "command": "uv",
       "args": [
         "--directory",
-        "/Users/aidandyga/Downloads/SeniorThesis/customer-service-mcp",
+        "/absolute/path/to/customer-service-mcp",
         "run",
         "-m",
         "src.categories.online_mobile_banking"
@@ -54,7 +54,7 @@
       "command": "uv",
       "args": [
         "--directory",
-        "/Users/aidandyga/Downloads/SeniorThesis/customer-service-mcp",
+        "/absolute/path/to/customer-service-mcp",
         "run",
         "-m",
         "src.categories.personal_loan"
@@ -64,7 +64,7 @@
       "command": "uv",
       "args": [
         "--directory",
-        "/Users/aidandyga/Downloads/SeniorThesis/customer-service-mcp",
+        "/absolute/path/to/customer-service-mcp",
         "run",
         "-m",
         "src.categories.student_loan"
@@ -74,7 +74,7 @@
       "command": "uv",
       "args": [
         "--directory",
-        "/Users/aidandyga/Downloads/SeniorThesis/customer-service-mcp",
+        "/absolute/path/to/customer-service-mcp",
         "run",
         "-m",
         "src.categories.ticket"
