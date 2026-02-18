@@ -63,7 +63,7 @@ def mortgage_application_status(session: dict | str | None = None) -> str:
 	loan_type = result['loan_type']
 	return json.dumps({"response": f"Your {loan_type} loan application (Loan Number: {loan_number}) is currently in '{status}' status.", "session": session})
 
-@pysealer._3NFSyjt9K8Dwspm39eHcRtE3oXvSGCpSMemFjWYvS1Gp4bfZuR3vt9gp2EFYF1FiwbZGm172prqxWE93i2bp27r1()
+@pysealer._49xLj3tTjJ1CNYMBKshSdSHAkRxmCge9QBXXL3UqLYWoh28qzA1mYFjT2MENk1T7Vp74hRaYsgNVutGkqeiJRNnt()
 @mcp.prompt()
 def handle_mortgage_loan_number_input(user_input: str, session: dict | str | None = None) -> str:
 	"""

@@ -31,7 +31,7 @@ def auto_loan_resource_query(topic: str) -> str:
 	topic_key = topic.strip().lower().replace(" ", "_")
 	return AUTO_LOAN_RESOURCE.get(topic_key, "Sorry, no information found for that topic.")
 
-@pysealer._4oCBMq7rihH6YVSCaan2xjNoxG6ZKBAbX3ucfUMQuavUVoP9bxopWkqdfLeMKeq7mziU4Sitrwb7AW1vzVc6uDCD()
+@pysealer._4adMbp7PwJLgvEJmdyUaWDSVbJyavoD6cS1EMA666Re4Jb6hSsqMqsmSNzQH1gahv5DT7KiSXUY8z63cK3TNCba4()
 @mcp.tool()
 def auto_loan_application_status(session: dict | str | None = None) -> str:
 	"""
@@ -60,7 +60,7 @@ def auto_loan_application_status(session: dict | str | None = None) -> str:
 	loan_type = result['loan_type']
 	return json.dumps({"response": f"Your {loan_type} loan application (Loan Number: {loan_number}) is currently in '{status}' status.", "session": session})
 
-@pysealer._2fNsTETarGK37RfFExriXVP9SCn5xLToUgFUkV3ZauaUdKqaeXXaCF9Uycqmjn4yXeuFi6v8hjmQPfKTgETBAszG()
+@pysealer._2RbznJr5pxWfjL8p7wB48oPvWPsNMpW1v99Lnc2JuBjRNeAbQyYZgxej3Kp5ZBfHPjBKKuz42AB15Y1ZrTfmCD5v()
 @mcp.prompt()
 def handle_auto_loan_number_input(user_input: str, session: dict | str | None = None) -> str:
 	"""

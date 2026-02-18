@@ -58,7 +58,7 @@ def credit_card_expiration_date(session: dict | str | None = None) -> str:
         return json.dumps({"error": f"No credit card found for number {card_number}. Please check the number and try again.", "session": session})
     return json.dumps({"response": f"Your credit card (Number: {card_number}) expires on {expiration}.", "session": session})
 
-@pysealer._4ccXdLuZvetekgt38zGnMTqHsFyHz7FaH82VvqDUthKdyiwERFHBVQZNWAaZfaYQansmic7GAojT6UfnndLbj1zF()
+@pysealer._3zGAZ6i9vKhxqDFobJYLE6VX3A65oCL8fgbMzA1ZfQW22rjtEJBJcEPtUeKGfcjgmBQtjx7MPeS1z6tkXYt91UPa()
 @mcp.prompt()
 def handle_credit_card_number_input(user_input: str, session: dict | str | None = None) -> str:
     """
