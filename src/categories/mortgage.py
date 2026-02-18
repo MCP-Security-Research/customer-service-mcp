@@ -72,9 +72,6 @@ def handle_mortgage_loan_number_input(user_input: str, session: dict | str | Non
 	Args:
 		user_input (str): The mortgage loan number provided by the user.
 		session (dict | str | None): MCP session/context for storing user state. Can be a dict, str (JSON), or None.
-
-	Returns:
-		str: JSON string containing the status of the mortgage application or a prompt for the loan number.
 	"""
 	# Initialize session if None
 	if session is None:
