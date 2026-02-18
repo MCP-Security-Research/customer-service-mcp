@@ -41,9 +41,6 @@ def home_equity_loan_application_status(session: dict | str | None = None) -> st
 
 	Args:
 		session (dict | str | None): MCP session/context for storing user state. Can be a dict, str (JSON), or None.
-
-	Returns:
-		str: JSON string containing the status of the home equity loan application, or a prompt for the loan number.
 	"""
 	# Initialize session if None
 	if session is None:
