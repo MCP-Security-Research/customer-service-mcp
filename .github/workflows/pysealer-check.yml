@@ -30,12 +30,10 @@ jobs:
     - name: Install pysealer
       run: |
         python -m pip install --upgrade pip
-        pip install pysealer==0.9.2
+        pip install pysealer==1.0.0
 
     - name: Run pysealer check on categories
       env:
           PYSEALER_PUBLIC_KEY: ${{ secrets.PYSEALER_PUBLIC_KEY }}
       run: |
-        PYSEALER_OUTPUT=$(pysealer check src/categories)
-        echo "$PYSEALER_OUTPUT" >> $GITHUB_STEP_SUMMARY
-      shell: bash
+        pysealer check src/categories
