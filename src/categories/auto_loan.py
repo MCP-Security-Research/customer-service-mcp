@@ -69,9 +69,7 @@ def handle_auto_loan_number_input(user_input: str, session: dict | str | None = 
 	Args:
 		user_input (str): The loan number provided by the user.
 		session (dict | str | None): MCP session/context for storing user state. Can be a dict, str (JSON), or None.
-
-	Returns:
-		str: JSON string containing the status of the auto loan application or a prompt for the loan number.
+		
 	"""
 	# Initialize session if None
 	if session is None:
