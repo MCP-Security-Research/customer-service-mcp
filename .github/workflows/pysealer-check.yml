@@ -38,3 +38,4 @@ jobs:
       run: |
         PYSEALER_OUTPUT=$(pysealer check src/categories)
         echo "$PYSEALER_OUTPUT" >> $GITHUB_STEP_SUMMARY
+      shell: bash
