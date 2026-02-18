@@ -33,7 +33,7 @@ def home_equity_loan_resource_query(topic: str) -> str:
 	topic_key = topic.strip().lower().replace(" ", "_")
 	return HOME_EQUITY_LOAN_RESOURCE.get(topic_key, "Sorry, no information found for that topic.")
 
-@pysealer._3j77fuyT3Zr7KTb7sjYYnzzYeqrfQrtGz6nsTtohx1J8NbsK8ZPMUdr2ccQ2gUWde6JfwocBPGonRprLqD3yWniX()
+@pysealer._5BSGC6WkHcML4V5A13uHSHw9ChNMtpGEB8CW7hKNidJ39wt2c5y5eThTi8AaR3WD2zmEi7VAgU8boa8AnZSRvo3w()
 @mcp.tool()
 def home_equity_loan_application_status(session: dict | str | None = None) -> str:
 	"""
@@ -42,7 +42,6 @@ def home_equity_loan_application_status(session: dict | str | None = None) -> st
 	Args:
 		session (dict | str | None): MCP session/context for storing user state. Can be a dict, str (JSON), or None.
 	"""
-	# Initialize session if None
 	if session is None:
 		session = {}
 	# If session is a string, parse it
