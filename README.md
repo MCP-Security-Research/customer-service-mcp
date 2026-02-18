@@ -1,18 +1,23 @@
-# Banking Customer Service Model Context Protocol (MCP) Servers
+
+# 🏦 Banking Customer Service Model Context Protocol (MCP) Servers
+
+> 💡 **Contains various example MCP Servers for testing that a financial institution could use for customer support.**
 
 ## Overview
 
-This repository provides multiple examples of **model context protocol (mcp) servers** for demonstrating the capabilities of an agentic banking customer support framework. **Note:** This is *not* a production-ready application and is intended for educational and demonstration purposes only. Security and authentication are not fully implemented; it is assumed that users are already authenticated.
+This repository provides multiple examples of **Model Context Protocol (MCP) servers** for demonstrating the capabilities of an agentic banking customer support framework.
 
-This example includes an example MCP server for each of the following banking customer support categories:
+> **Note:** This is *not* a production-ready application and is intended for educational and demonstration purposes only. Security and authentication are not fully implemented; it is assumed that users are already authenticated.
 
-- Auto Loan
-- Credit Card
-- Home Equity Loan
-- Mortgage
-- Online/Mobile Banking
-- Personal Loan
-- Student Loan
+This example includes an MCP server for each of the following banking customer support categories:
+
+- 🚗 Auto Loan
+- 💳 Credit Card
+- 🏡 Home Equity Loan
+- 🏠 Mortgage
+- 📱 Online/Mobile Banking
+- 💰 Personal Loan
+- 🎓 Student Loan
 
 ## Requirements
 
@@ -50,27 +55,31 @@ uv run src/database.py
         "-m",
         "src.categories.auto_loan"
       ]
-    },
-    // Add additional MCP servers to this config to access them in Claude Desktop:
-    // "credit-card-customer-support-agent": { ... },
-    // "home-equity-customer-support-agent": { ... },
-    // "mortgage-customer-support-agent": { ... },
-    // "online-mobile-banking-customer-support-agent": { ... },
-    // "personal-loan-customer-support-agent": { ... },
-    // "student-loan-customer-support-agent": { ...
+    }
   }
 }
 ```
 
----
+To add additional MCP servers to this config, include more entries under the `mcpServers` object, for example:
 
-TODO List:
+- "credit-card-customer-support-agent"
+- "home-equity-customer-support-agent"
+- "mortgage-customer-support-agent"
+- "online-mobile-banking-customer-support-agent"
+- "personal-loan-customer-support-agent"
+- "student-loan-customer-support-agent"
 
-- function, disput charge on credit card --> mail
-- function, request replacement credit card --> mail
-- function, online banking forgot password --> mail, db
-- also need something for submitting tickets (if the model cannot determine or needs more info, it will submit a ticket for a human to review.)!!!
-- sql lite and claude desktop for now. could transition to real application
-- mcp client --> can ask users for info, should i do this as well? maybe later on
-- delete the claude desktop config
-- add python linting like ruff
+## 🚀 Future Work
+
+This repo is primarily for experimentation and prototyping.
+
+**Improvement Ideas:**
+
+- Implement function to dispute a charge on a credit card (send via mail)
+- Implement function to request a replacement credit card (send via mail)
+- Implement online banking "forgot password" flow (send via mail, update DB)
+- Add ticket submission for cases where the model cannot determine the issue or needs more info (route to human review)
+- Use SQLite and Claude Desktop for now; consider transitioning to a real application in the future
+- MCP client: consider adding user info collection (maybe later)
+- Remove the Claude Desktop config from the repo
+- Add Python linting (e.g., ruff)
