@@ -69,6 +69,15 @@ To add additional MCP servers to this config, include more entries under the `mc
 - "personal-loan-customer-support-agent"
 - "student-loan-customer-support-agent"
 
+## Threat Vectors in General MCP Security
+
+This repo is primarily used to demonstrate security issues that exist within MCP. It focuses on the following:
+
+- 🧪 **Tool poisoning**: Malicious or compromised tools are injected into the agent's environment, causing it to perform unintended or harmful actions.
+- 🕵️‍♂️ **Tool shadowing**: Legitimate tools are overridden or replaced by malicious versions, leading to unexpected or insecure behavior.
+
+See the [ATTACKS.md](ATTACKS.md) document for more details.
+
 ## 🚀 Future Work
 
 This repo is primarily for experimentation and prototyping.
