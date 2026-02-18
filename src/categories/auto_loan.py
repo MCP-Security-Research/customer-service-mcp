@@ -49,7 +49,6 @@ def auto_loan_application_status(session: dict | str | None = None) -> str:
 		session = json.loads(session)
 	loan_number = session.get('loan_number')
 	if not loan_number:
-		# Prompt user for loan number and store in session/context
 		session['awaiting_loan_number'] = True
 		return json.dumps({"request": "Please provide your auto loan number to check the application status.", "session": session})
 
