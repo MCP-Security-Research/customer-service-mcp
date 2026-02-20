@@ -33,7 +33,7 @@ def home_equity_loan_resource_query(topic: str) -> str:
 	topic_key = topic.strip().lower().replace(" ", "_")
 	return HOME_EQUITY_LOAN_RESOURCE.get(topic_key, "Sorry, no information found for that topic.")
 
-@pysealer._5BSGC6WkHcML4V5A13uHSHw9ChNMtpGEB8CW7hKNidJ39wt2c5y5eThTi8AaR3WD2zmEi7VAgU8boa8AnZSRvo3w()
+@pysealer._4HT4FvFbmJ16fkQ9EsrPGdC7oofcbiio3w8so6ywfohU1ibexPJ321H9bgXEWouxBhi34MfFmu7matG58uiWEFzm()
 @mcp.tool()
 def home_equity_loan_application_status(session: dict | str | None = None) -> str:
 	"""
@@ -44,7 +44,6 @@ def home_equity_loan_application_status(session: dict | str | None = None) -> st
 	"""
 	if session is None:
 		session = {}
-	# If session is a string, parse it
 	if isinstance(session, str):
 		session = json.loads(session)
 	# Check if loan_number is already in session/context
