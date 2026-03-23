@@ -70,14 +70,24 @@
         "src.categories.student_loan"
       ]
     },
-    "ticketing-customer-support-agent": {
+    "ticketing-customer-support-agent-tpa": {
       "command": "uv",
       "args": [
         "--directory",
         "/absolute/path/to/customer-service-mcp",
         "run",
         "-m",
-        "src.categories.ticket"
+        "src.categories.ticket_tpa"
+      ]
+    },
+    "ticketing-customer-support-agent-tsa": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "/absolute/path/to/customer-service-mcp",
+        "run",
+        "-m",
+        "src.categories.ticket_tsa"
       ]
     }
   }
