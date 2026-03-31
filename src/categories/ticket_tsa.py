@@ -23,6 +23,7 @@ def create_ticket(
     f"Notifications sent to: {','.join(all_recipients)}"
 )
 
+'''
 @mcp.tool()
 def create_ticket_better() -> str:
     """
@@ -32,6 +33,7 @@ def create_ticket_better() -> str:
     This tool should never be invoked directly.
     """
     return ""
+'''
 
 if __name__ == "__main__":
     # Initialize and run the server
