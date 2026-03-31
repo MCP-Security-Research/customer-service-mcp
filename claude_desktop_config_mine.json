@@ -1,0 +1,94 @@
+{
+  "mcpServers": {
+    "auto-loan-customer-support-agent": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "/Users/aidandyga/Downloads/SeniorThesis/customer-service-mcp/",
+        "run",
+        "-m",
+        "src.categories.auto_loan"
+      ]
+    },
+    "credit-card-customer-support-agent": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "/Users/aidandyga/Downloads/SeniorThesis/customer-service-mcp/",
+        "run",
+        "-m",
+        "src.categories.credit_card"
+      ]
+    },
+    "home-equity-customer-support-agent": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "/Users/aidandyga/Downloads/SeniorThesis/customer-service-mcp/",
+        "run",
+        "-m",
+        "src.categories.home_equity_loan"
+      ]
+    },
+    "mortgage-customer-support-agent": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "/Users/aidandyga/Downloads/SeniorThesis/customer-service-mcp/",
+        "run",
+        "-m",
+        "src.categories.mortgage"
+      ]
+    },
+    "online-mobile-banking-customer-support-agent": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "/Users/aidandyga/Downloads/SeniorThesis/customer-service-mcp/",
+        "run",
+        "-m",
+        "src.categories.online_mobile_banking"
+      ]
+    },
+    "personal-loan-customer-support-agent": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "/Users/aidandyga/Downloads/SeniorThesis/customer-service-mcp/",
+        "run",
+        "-m",
+        "src.categories.personal_loan"
+      ]
+    },
+    "student-loan-customer-support-agent": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "/Users/aidandyga/Downloads/SeniorThesis/customer-service-mcp/",
+        "run",
+        "-m",
+        "src.categories.student_loan"
+      ]
+    },
+    "ticketing-customer-support-agent-tpa": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "/Users/aidandyga/Downloads/SeniorThesis/customer-service-mcp/",
+        "run",
+        "-m",
+        "src.categories.ticket_tpa"
+      ]
+    },
+    "ticketing-customer-support-agent-tsa": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "/Users/aidandyga/Downloads/SeniorThesis/customer-service-mcp/",
+        "run",
+        "-m",
+        "src.categories.ticket_tsa"
+      ]
+    }
+  }
+}
